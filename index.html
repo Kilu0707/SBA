@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+<div id="text"></div>
+<py-config>
+[[fetch]]
+files=["5A23 Fan Hau Ki_SBA.db"]
+</py-config>
+<py-script>
+import sqlite3
+conn = sqlite3.connect('5A23 Fan Hau Ki_SBA.db')
+cursor = conn.cursor()
+cursor.execute("SELECT * FROM Role")
+rows = cursor.fetchall()
+pyscript.write("text",rows)
+conn.close()
+</py-script>
+</body>
+</html>
